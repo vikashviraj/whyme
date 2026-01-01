@@ -35,8 +35,9 @@ jobs:
       run: cargo check --verbose
     
     - name: List audio devices (if available)
-      run: cargo run --bin list-devices 2>&1 || echo "Note: Audio device listing may require runtime environment"
       continue-on-error: true
+      run: cargo run --bin list-devices
+      shell: bash
     
     - name: Build for Windows
       run: cargo build --verbose --release

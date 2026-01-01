@@ -53,7 +53,7 @@ mkdir -p model
 
 # Download the base English model (if not already present)
 # You can download from: https://huggingface.co/ggerganov/whisper.cpp
-# Or use the included model file
+# Or directly from: https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.en.bin
 ```
 
 **Note**: The repository includes `model/ggml-base.en.bin` by default. If you need a different model or language, replace this file.
