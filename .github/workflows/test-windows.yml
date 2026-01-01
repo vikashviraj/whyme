@@ -1,0 +1,43 @@
+name: Test Windows Build
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  test-windows:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+        override: true
+    
+    - name: Cache cargo registry
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cargo/bin/
+          ~/.cargo/registry/index/
+          ~/.cargo/registry/cache/
+          ~/.cargo/git/db/
+          target/
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+    
+    - name: Check code compiles
+      run: cargo check --verbose
+    
+    - name: List audio devices (if available)
+      run: cargo run --bin list-devices 2>&1 || echo "Note: Audio device listing may require runtime environment"
+      continue-on-error: true
+    
+    - name: Build for Windows
+      run: cargo build --verbose --release
+

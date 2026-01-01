@@ -1,0 +1,34 @@
+# Rust
+/target
+# Cargo.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.o
+*.so
+*.dylib
+*.dll
+*.exe
+
+# Logs
+*.log
+
+# Transcripts
+# Notes/transcript.txt
+
+# Model files
+# model/*.bin
+
+# Environment
+.env
+.env.local

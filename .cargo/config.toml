@@ -1,0 +1,11 @@
+# Cargo configuration
+# Note: For C++ build issues, use ./build.sh instead of cargo directly
+# or export these before building:
+#   export CXXFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX26.2.sdk/usr/include/c++/v1"
+#   export MACOSX_DEPLOYMENT_TARGET=15.0
+
+[target.x86_64-apple-darwin]
+rustflags = ["-C", "link-arg=-mmacosx-version-min=15.0"]
+
+[target.aarch64-apple-darwin]
+rustflags = ["-C", "link-arg=-mmacosx-version-min=15.0"]

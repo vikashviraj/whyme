@@ -1,0 +1,22 @@
+[package]
+name = "whyme"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "whyme"
+path = "src/main.rs"
+
+[[bin]]
+name = "list-devices"
+path = "scripts/list-devices.rs"
+
+[dependencies]
+cpal = "0.15"
+crossbeam-channel = "0.5"
+whisper-rs = "0.11"
+rubato = "0.14"
+anyhow = "1"
+ctrlc = "3"
+
+[dev-dependencies]
