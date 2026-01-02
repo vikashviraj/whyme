@@ -106,10 +106,11 @@ fn main() -> Result<()> {
                 println!("Found {} segments", n);
                 for i in 0..n {
                     let text = state.full_get_segment_text(i)?;
-                    if !text.trim().is_empty() {
-                        writeln!(file, "{}", text)?;
+                    let trimmed_text = text.trim();
+                    if !trimmed_text.is_empty() {
+                        writeln!(file, "{}", trimmed_text)?;
                         file.flush()?;
-                        println!("  [{}] {}", i, text);
+                        println!("  [{}] {}", i, trimmed_text);
                     }
                 }
 
